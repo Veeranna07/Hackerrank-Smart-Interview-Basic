@@ -22,7 +22,7 @@ Sample Output 0
 
 Explanation 0
 Self Explanatory
-/*
+ */
 
 
 #include<stdio.h>
