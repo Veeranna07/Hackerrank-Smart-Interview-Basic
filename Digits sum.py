@@ -22,11 +22,11 @@ Explanation 0
 Self Explanatory
 
 '''
-number=int(input())
-addition=0
-modulo=0
-while number!=0:
-    modulo=number%10
-    addition+=modulo
-    number//=10
-print(addition)
+n=int(input())
+sum=0
+m=0
+while n!=0:
+    m=n%10
+    sum+=m
+    n//=10
+print(sum)
