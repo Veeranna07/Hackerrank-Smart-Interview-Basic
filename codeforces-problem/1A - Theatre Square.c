@@ -1,3 +1,6 @@
+
+//NOTE : The following code shows "Compilation Error" in codeforces Website and works preety perfect on other coding platforms.
+
 #include<stdio.h>
 #include<math.h>
 
