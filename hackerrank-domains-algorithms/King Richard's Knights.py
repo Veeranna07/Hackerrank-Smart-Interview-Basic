@@ -1,5 +1,8 @@
+#!/bin/python3
+
 import os
 import sys
+
 
 def identity():
     return [
@@ -22,6 +25,9 @@ def ccw(x, y, k):
         [0, -1, 0],
     ]
 
+
+# from profiler import line_profile
+
 def multiply(a, b):
     c = [
         [0] * len(b[0])
@@ -33,6 +39,9 @@ def multiply(a, b):
                 c[i][j] += a[i][k] * b[k][j]
 
     return c
+# return [
+#         a[0][0]*b[0][0] + a[0][1]*b[1][0] + a[0][2] * b[2][0]
+#     ]
 
 def multiply_ccw(x, y, k, a):
     return [[
@@ -58,6 +67,13 @@ def multiply_cw(x, y, k, a):
         for i in range(3)
     ]]
 
+
+#
+# Complete the kingRichardKnights function below.
+#
+# from profiler import line_profile
+#
+# @line_profile()
 def kingRichardKnights(n, commands, knights):
     new_commands = []
 
@@ -75,6 +91,7 @@ def kingRichardKnights(n, commands, knights):
             new_command[1] -= c[2]
         new_commands.append(new_command)
 
+        # t = multiply(ccw(c[0], c[1], c[2]), t)
         t = multiply_ccw(c[0], c[1], c[2], t)
 
     to_process = {}
@@ -102,6 +119,7 @@ def kingRichardKnights(n, commands, knights):
 
     t = identity()
     for ind, c in enumerate(new_commands):
+        # t = multiply(cw(c[0], c[1], c[2]), t)
         t = multiply_cw(c[0], c[1], c[2], t)
         for k in to_process.get(ind, []):
             m = multiply([[1, k[0], k[1]]], t)
@@ -116,7 +134,9 @@ def kingRichardKnights(n, commands, knights):
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-    
+    # import sys
+    # sys.stdin = open('input', 'r')
+
     n = int(input())
     s = int(input())
 
